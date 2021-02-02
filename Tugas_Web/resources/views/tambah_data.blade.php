@@ -10,11 +10,14 @@
 		@csrf
   <div class="form-group">
     <label for="nama_siswa">Masukan Nama Siswa</label>
-    <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" required="required">
+    <input type="text" class="form-control" id="nama_siswa" name="nama_siswa"  value="{{ @old('nama_siswa') }}" >
+    @error('nama_siswa')
+    <p class="small text-danger">{{ $message }}</p>
+    @enderror
 	</div>
   <div class="form-group">
     <label for="kelas">Kelas</label>
-    <select class="form-control select" id="kelas" name="kelas" required="required">
+    <select class="form-control select" id="kelas" name="kelas" >
         <option></option>
         <option value="10 RPL 1">10 RPL 1</option>
         <option value="10 RPL 2">10 RPL 2</option>
@@ -89,16 +92,26 @@
         <option value="12 AKL 4">12 AKL 4</option>
         <option value="12 AKL 5">12 AKL 5</option>
     </select>
+    @error('kelas')
+    <p class="small text-danger">{{ $message }}</p>
+    @enderror
   </div>
   <div class="form-group">
     <label for="umur_siswa">Umur</label>
-    <input type="number" class="form-control" id="umur_siswa" name="umur_siswa" required="required">
+    <input type="number" class="form-control" id="umur_siswa" name="umur_siswa" value="{{ @old('umur_siswa') }}" >
+    @error('umur_siswa')
+    <p class="small text-danger">{{ $message }}</p>
+    @enderror
   </div>
   <div class="form-group">
     <label for="alamat">Alamat</label>
-    <input type="text" class="form-control" id="alamat" name="alamat" required="required">
+    <input type="text" class="form-control" id="alamat" name="alamat" value="{{ @old('alamat') }}" >
+    @error('alamat')
+    <p class="small text-danger">{{ $message }}</p>
+    @enderror
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="reset" class="btn btn-secondary">Reset</button>
 </form>
 	</div>
 </section>

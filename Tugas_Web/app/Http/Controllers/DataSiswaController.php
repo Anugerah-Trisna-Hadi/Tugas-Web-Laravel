@@ -40,6 +40,12 @@ class DataSiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama_siswa' => 'required',
+            'kelas' => 'required',
+            'umur_siswa' => 'required|min:2',
+            'alamat' => 'required',
+        ]);
         DB::table('siswa')->insert([
             'nama_siswa' => $request->nama_siswa,
             'kelas' => $request->kelas,
@@ -83,6 +89,12 @@ class DataSiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nama_siswa' => 'required',
+            'kelas' => 'required',
+            'umur_siswa' => 'required|min:2',
+            'alamat' => 'required',
+        ]);
         $siswa = DB::table('siswa')->where('id', $id)->update([
             'nama_siswa' => $request->nama_siswa,
             'kelas' => $request->kelas,
@@ -100,7 +112,7 @@ class DataSiswaController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('siswa')->where('id_siswa',$id)->delete();
+        DB::table('siswa')->where('id',$id)->delete();
         return redirect('/DataSiswa');
     }
 }
