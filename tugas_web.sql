@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 02:45 AM
+-- Generation Time: Feb 16, 2021 at 07:27 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -88,8 +88,8 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nama_siswa`, `kelas`, `umur_siswa`, `alamat`) VALUES
-(1, 'Bambang Husein', '11 RPL 1', 19, 'Jalan In Aja Doelo'),
-(2, 'Bambang Husein', '10 AKL 2', 19, 'Jalan In Aja Doelo');
+(1, 'Bambang Husein', '11 RPL 1', 23, 'Jalan In Aja Doelo'),
+(6, 'Anugerah Trisna Hadi', '12 RPL 1', 19, 'Krian');
 
 -- --------------------------------------------------------
 
@@ -107,6 +107,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@laravel-sby.com', NULL, '$2y$10$WW1fKHVpdR039ldNN/RcgO2kzXmIx7VtZwajX0Twf9Wm4QqklzhtC', 'nz8OeDsS0dcpBQ56Os7o17t8GZFeAw83FvB8MNVm7lI4LiEtQN1jHwkLKAwM', '2021-02-15 21:00:14', '2021-02-15 21:00:14');
 
 --
 -- Indexes for dumped tables
@@ -163,13 +170,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DataSiswaController;
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,8 @@ use App\Http\Controllers\DataSiswaController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::resource('/DataSiswa', DataSiswaController::class);
+Route::get('/Login', [LoginController::class, 'index']);
+Route::get('/Logout', [LoginController::class, 'logout']);
+Route::post('/PostLogin', [LoginController::class, 'PostLogin']);
+
+Route::resource('/DataSiswa', DataSiswaController::class)->middleware('auth');
